@@ -18,10 +18,18 @@ fi
 # --- INTERACTIVE INPUT ---
 echo -e "\e[32m󰗝 Zen PWA Installer\e[0m\n"
 
-APP_NAME=$(gum input --prompt "Name> " --placeholder "Proton Mail")
+APP_NAME=$(gum input --prompt "Name> " --placeholder "Proton Mail") || exit 0
+if [[ -z "$APP_NAME" ]]; then
+    echo "No app name provided. Installation cancelled."
+    exit 0
+fi
 
 while true; do
-    APP_URL=$(gum input --prompt "URL> " --placeholder "https://mail.proton.me")
+    APP_URL=$(gum input --prompt "URL> " --placeholder "https://mail.proton.me") || exit 0
+    if [[ -z "$APP_URL" ]]; then
+        echo "No URL provided. Installation cancelled."
+        exit 0
+    fi
     [[ ! $APP_URL =~ ^[a-zA-Z][a-zA-Z0-9+.-]*: ]] && APP_URL="https://$APP_URL"
 
     echo -ne "  \e[34m󰔟 Validating URL...\e[0m"
@@ -46,7 +54,7 @@ FAVICON_URL="https://www.google.com/s2/favicons?domain=${APP_URL}&sz=128"
 INDEX_FILE="$BASE_DIR/zpwa.index"
 
 # --- ICON HANDLING ---
-mkdir -p "$ICON_DIR"
+mkdir -p "$ICON_DIR" "$DESKTOP_DIR"
 
 if gum confirm "Would you like to automatically fetch an icon?" --affirmative "Automatic" --negative "Manual"; then
     if ! curl -fsSL -o "$ICON_PATH" "$FAVICON_URL" 2>/dev/null || [[ ! -s "$ICON_PATH" ]]; then

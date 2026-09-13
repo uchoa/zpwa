@@ -101,7 +101,8 @@ user_pref("zen.workspaces.swipe-actions", false);
 // Disables the "Browser" feel so you don't accidentally navigate away.
 user_pref("zen.keyboard.shortcuts.enabled", false);          // Disable Zen-specific shortcuts
 user_pref("zen.keyboard.shortcuts.disable-mainkeyset-clear", true);
-user_pref("permissions.default.shortcuts", 2);               // Prevent site keybind hijacking
+user_pref("browser.backspace_action", 2);                    // 0=Back, 1=Scroll, 2=Do nothing (leaves Backspace for text input)
+user_pref("permissions.default.shortcuts", 0);               // Allow web apps to handle their own key events
 user_pref("accessibility.typeaheadfind", false);             // Disable 'Find as you type'
 user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.bookmark", false);

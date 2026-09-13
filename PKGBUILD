@@ -1,6 +1,7 @@
 # Maintainer: nemphorous <https://github.com/nemphorous>
+_pkgname=zpwa
 pkgname=zpwarch
-pkgver=0.1.0
+pkgver=1.0.0
 pkgrel=1
 pkgdesc="Zen PWA Suite - Self-contained web apps via Zen Browser"
 arch=('any')
@@ -10,12 +11,12 @@ depends=('zen-browser' 'gum' 'curl' 'sed' 'grep' 'socat' 'jq' 'perl')
 provides=('zpwa')
 conflicts=('zpwa-git')
 install=zpwa.install
-source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+source=("$_pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
 sha256sums=('SKIP')
 
 
 package() {
-    cd "$srcdir/$pkgname-$pkgver"
+    cd "$srcdir/$_pkgname-$pkgver"
 
     install -dm755 "$pkgdir/usr/share/zpwa"
 

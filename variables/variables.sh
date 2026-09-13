@@ -7,10 +7,10 @@ if [ ! -t 0 ]; then
 fi
 
 # --- DIRECTORY STRUCTURE ---
-export BASE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zpwa"
-export ZEN_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zen"
-export ICON_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
-export DESKTOP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+export BASE_DIR="${BASE_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/zpwa}"
+export ZEN_DIR="${ZEN_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/zen}"
+export ICON_DIR="${ICON_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/icons}"
+export DESKTOP_DIR="${DESKTOP_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/applications}"
 export SCRIPT_DIR="$BASE_DIR/scripts"
 export GEN_DIR="$SCRIPT_DIR/generate"
 export PAYLOAD_DIR="$BASE_DIR/payloads"
