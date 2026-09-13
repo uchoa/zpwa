@@ -1,6 +1,6 @@
 # Maintainer: nemphorous <https://github.com/nemphorous>
 pkgname=zpwarch
-pkgver=1.0.1
+pkgver=0.1.0
 pkgrel=1
 pkgdesc="Zen PWA Suite - Self-contained web apps via Zen Browser"
 arch=('any')
