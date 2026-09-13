@@ -1,8 +1,8 @@
 #!/bin/bash
-# find_bind.sh - Omarchy Dynamic Keybind Linker
+# find_bind.sh - Dynamic Keybind Linker
 
 # --- INITIALIZE ---
-source "$HOME/.zpwa/variables/variables.sh"
+source "${BASE_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/zpwa}/variables/variables.sh"
 ACTION=$1
 
 # --- SOURCE & PREP DISPATCHERS ---
@@ -15,18 +15,7 @@ fi
 DISPATCHERS=$(grep -vE '^[[:space:]]*#|^[[:space:]]*$' "$DISPATCHER_LIST" | tr '\n' '|' | sed 's/|$//')
 
 # --- SEARCH LOCATIONS ---
-LOCATIONS=(
-    "$HOME/.config/hypr/bindings.conf"
-    "$HOME/.config/hypr/hyprland.conf"
-    "$HOME/.config/hypr/monitors.conf"
-    "$HOME/.config/hypr/input.conf"
-    "$HOME/.config/hypr/looknfeel.conf"
-    "$HOME/.config/hypr/autostart.conf"
-    "$HOME/.local/share/omarchy/default/hypr/bindings/tiling-v2.conf"
-    "$HOME/.local/share/omarchy/default/hypr/bindings/utilities.conf"
-    "$HOME/.local/share/omarchy/default/hypr/bindings/media.conf"
-    "$HOME/.local/share/omarchy/default/hypr/bindings/clipboard.conf"
-)
+mapfile -t LOCATIONS < <(find "$HOME/.config/hypr" -type f \( -name "*.conf" -o -name "*.lua" \) 2>/dev/null)
 
 for loc in "${LOCATIONS[@]}"; do
     if [ -f "$loc" ]; then

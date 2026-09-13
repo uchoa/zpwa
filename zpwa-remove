@@ -2,7 +2,7 @@
 set -e
 
 # --- INITIALIZE ---
-source "$HOME/.zpwa/variables/variables.sh"
+source "${BASE_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/zpwa}/variables/variables.sh"
 INDEX_FILE="$BASE_DIR/zpwa.index"
 
 if [[ ! -s "$INDEX_FILE" ]]; then

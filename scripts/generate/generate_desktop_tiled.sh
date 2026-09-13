@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.zpwa/variables/variables.sh"
+source "${BASE_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/zpwa}/variables/variables.sh"
 
 # Use the centralized DESKTOP_DIR variable
 DESKTOP_FILE="$DESKTOP_DIR/webapp.$SAFE_NAME.desktop"

@@ -19,14 +19,14 @@ Instead of "requesting" the browser to hide UI elements, ZPWA **commands** it.
 * **Result:** The browser engine starts in a "hardened" SSB (Single Site Browser) state. No address bar, no tab strips, and no UI flicker. It is just the web app and the window.
 
 ### 2. The Socket Calling Daemon
-To bridge the gap between a browser process and the Omarchy desktop, ZPWA utilizes a proprietary socket calling daemon.
+To bridge the gap between a browser process and the Linux desktop, ZPWA utilizes a socket calling daemon.
 * **The Dictionary:** The system references `dispatchers/dispatchers.list` as a source of truth for keybind generation.
 * **The Hook:** When you trigger a PWA-specific keybind in Hyprland, the signal is caught by the daemon and routed directly to the specific PWA’s PID.
 * **Result:** This creates a "Native App" feel where the PWA responds to system-level commands with zero latency.
 
-### 3. The Omarchy-First Architecture
-ZPWA is built exclusively for the **Omarchy** ecosystem. It is designed to respect the opinionated filesystem hierarchy and configuration styles of an Omarchy install.
-* **Walker Integration:** PWAs are automatically injected into your Walker application runner.
+### 3. Desktop-Native Architecture
+ZPWA is built for the **Arch Linux** ecosystem. It is designed to respect standard XDG specifications and desktop configuration styles.
+* **Application Launcher Integration:** PWAs are automatically available in your application runner via standard `.desktop` entries.
 * **Hyprland Native:** Window rules are generated based on the PWA’s unique class, ensuring your window manager treats "YouTube Music" differently than a standard "Zen Browser" window.
 
 ## The Zero-Trust Privacy Standard
@@ -43,7 +43,7 @@ By removing the WebExtension layer and the standard browser UI overhead:
 * **System Unity:** Because ZPWA is local, it utilizes your system's `socat` and `sed` utilities for maximum efficiency.
 
 ## Summary
-ZPWA is for the Omarchy user who wants the web to feel like a part of their OS, not a tab in their browser. It provides the **magic** of a native application with the **security** of a local, open-source script.
+ZPWA is for the Arch Linux user who wants the web to feel like a part of their OS, not a tab in their browser. It provides the **magic** of a native application with the **security** of a local, open-source script.
 
 Despite being branded as a PWA creator, ZPWA functions as a de-bloated Gecko alternative to Electron.
 

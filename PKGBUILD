@@ -1,10 +1,10 @@
 # Maintainer: nemphorous <https://github.com/nemphorous>
-pkgname=zpwa
+pkgname=zpwarch
 pkgver=1.0.1
 pkgrel=1
-pkgdesc="Zen PWA Suite for Omarchy - Self-contained web apps via Zen Browser"
+pkgdesc="Zen PWA Suite - Self-contained web apps via Zen Browser"
 arch=('any')
-url="https://github.com/nemphorous/zpwa"
+url="https://github.com/uchoa/zpwa"
 license=('GPL3')
 depends=('zen-browser' 'gum' 'curl' 'sed' 'grep' 'socat' 'jq' 'perl')
 provides=('zpwa')
@@ -13,12 +13,6 @@ install=zpwa.install
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
 sha256sums=('SKIP')
 
-prepare() {
-    if [[ ! -d "$HOME/.config/omarchy" || ! -f "$HOME/.local/share/omarchy/bin/omarchy-menu" ]]; then
-        echo -e "\n\e[31m[ERROR] Omarchy environment not detected.\e[0m"
-        return 1
-    fi
-}
 
 package() {
     cd "$srcdir/$pkgname-$pkgver"

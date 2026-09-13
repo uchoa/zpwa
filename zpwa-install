@@ -2,7 +2,7 @@
 set -e
 
 # --- INITIALIZE ---
-source "$HOME/.zpwa/variables/variables.sh"
+source "${BASE_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/zpwa}/variables/variables.sh"
 
 # --- DEPENDENCY CHECK ---
 if [[ ! -f "$PWA_MONITOR" ]]; then

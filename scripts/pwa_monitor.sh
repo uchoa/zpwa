@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# --- HYPRLAND ENVIRONMENT GUARD ---
+if ! command -v hyprctl >/dev/null 2>&1 || [ -z "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
+    exit 0
+fi
 # --- SINGLE INSTANCE GUARD ---
 exec 200>>"/tmp/pwa_monitor.lock"
 

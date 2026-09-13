@@ -24,9 +24,7 @@ ZPWA uses clear markers to avoid corrupting your existing dotfiles. Open the fol
 
 **Hyprland Binds:** Check `~/.config/hypr/bindings.conf` | Look for the `# --- ZEN PWA ---` block.
 
-**Menu Integrations:** Check `~/.config/omarchy/extensions/menu.sh` | Look for the `show_install_menu()` and `show_remove_menu()` functions.
-
-If your `~/.zpwa` directory is still intact, the snapshots folder has timestamped backups that you can refer to before moving onto directory deletion.
+If your `~/.local/share/zpwa` directory is still intact, the snapshots folder has timestamped backups that you can refer to before moving onto directory deletion.
 
 ### 2. Delete the Directories
 
@@ -36,7 +34,7 @@ Once the config blocks are gone, the software only exists in two specific locati
 # Source directory for zpwa setup
 sudo rm -rf /usr/share/zpwa/
 # Primary user directory from which zpwa functions
-rm -rf ~/.zpwa/
+rm -rf "${XDG_DATA_HOME:-$HOME/.local/share}/zpwa"
 ```
 ### 3. Binary Cleanup
 
@@ -53,4 +51,4 @@ The profiles still exist on system as your appname with the `webapp.` prefix att
 
 To further remove installed webapps if not done through the zpwa cli suite before uninstallation, the launch shortcut/.desktop file can be found in `.local/share/applications` with its attached icon at `.local/share/applications/icons`.
 
-Once these steps are completed, your Omarchy environment is functionally identical to its pre-ZPWA state. We do not modify the Zen Browser binary itself, nor do we touch the global /etc/ directory. All modifications are strictly contained within the user's .config and the package's specific shared directories.
+Once these steps are completed, your environment is functionally identical to its pre-ZPWA state. We do not modify the Zen Browser binary itself, nor do we touch the global /etc/ directory. All modifications are strictly contained within the user's .config and the package's specific shared directories.

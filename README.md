@@ -1,6 +1,6 @@
 <div align="center">
   <h1>ZPWA</h1>
-  <p><em>A Zen Browser PWA/SSB Suite for Omarchy</em></p>
+  <p><em>A Zen Browser PWA/SSB Suite for Arch Linux</em></p>
 
   <font color="#A2D471">
     <pre>
@@ -16,10 +16,10 @@
   </font>
 </div>
 
-**ZPWA** is a high-performance CLI and TUI utility designed to transform the Zen Browser into a native-feeling PWA (Progressive Web App) engine, seamlessly injecting web applications into your [Omarchy](https://omarchy.org) managed Hyprland / Walker environment and system menus.
+**ZPWA** is a high-performance CLI and TUI utility designed to transform the Zen Browser into a native-feeling PWA (Progressive Web App) engine, seamlessly integrating web applications into your Arch Linux desktop environment and application menus.
 
 ## Features
-* **Zero-Config Injection:** Automatically adds PWAs to your Omarchy/Walker menus.
+* **Zero-Config Injection:** Automatically adds PWAs to your desktop application menus.
 * **Isolated Profiles:** Each PWA runs in its own clean Zen Browser profile.
 * **Native Hyprland Integration:** Custom window rule assignment support.
 * **Atomic Updates:** Sync system-wide template changes to all local PWAs with one command.
@@ -34,7 +34,7 @@ Browser extensions often demand excessive permissions, inject heavy background s
 
 * **Security:** No data collection. No third-party extension APIs. Your PWAs are simple, isolated Gecko instances.
 * **Performance:** Bypasses extension overhead, utilizing a proprietary socket calling daemon to catch keybinds with near-zero latency.
-* **Aesthetic Unity:** Designed to look and feel like a native Omarchy system component. From the Walker menu integration to the Hyprland workspace rules, it disappears into your workflow.
+* **Aesthetic Unity:** Designed to look and feel like a native desktop component. From application launcher integration to desktop workspace rules, it disappears into your workflow.
 
 See [PRODUCT.md](docs/PRODUCT.md) for more information.
 
@@ -48,7 +48,7 @@ yay -S zpwa
 zpwa setup
 ```
 
-> **Note:** ZPWA is built for [Omarchy](https://omarchy.org). As ZPWA is heavily integrated into and dependent on the default opinionated Omarchy setup, this software is not rated for use in other flavors of Arch, nor other Linux Distros.
+> **Note:** ZPWA is built for Arch Linux with Zen Browser. It supports Wayland/Hyprland environments as well as standard desktop environments.
 
 **Run**
 ```bash
@@ -60,8 +60,7 @@ zpwa update                  # Sync binds/templates
 # Maintenance
 zpwa setup                   # Re-run environment initialization
 zpwa revert                  # Restore original system state
-zpwa menu-change             # Change menu integration style
-zpwa restore                 # [menu|binds] Select and restore snapshots
+zpwa restore                 # [binds] Select and restore snapshots
 zpwa monitor                 # Run PWA monitor verbosely
 zpwa -h, --help              # Show this menu
 ```
@@ -69,7 +68,7 @@ zpwa -h, --help              # Show this menu
 <a name="safety"></a>
 ZPWA is a local system integration tool, commands can perform destructive local operations.
 
-This software uses safety-first defaults: path validation, intended modifiable-directory integration that respects the intended Omarchy customization hierarchy, backup-centric command flow, and explicit confi>
+This software uses safety-first defaults: path validation, XDG standard directory compliance, backup-centric command flow, and explicit confirmations.
 
 Review [SAFETY.md](docs/SAFETY.md) and [CLEANUP.md](docs/CLEANUP.md) for further detail on precautions taken, and manual cleanup instructions respectively.
 
@@ -85,7 +84,7 @@ Review [SAFETY.md](docs/SAFETY.md) and [CLEANUP.md](docs/CLEANUP.md) for further
 
 </div>
 
-#### Omarchy/Walker Menu Integration
+#### Desktop Application Integration
 <p align="center">
   <img src="docs/assets/install_menu.jpg" width="45%" />
   <img src="docs/assets/uninstall_menu.jpg" width="45%" />
@@ -103,14 +102,13 @@ Review [SAFETY.md](docs/SAFETY.md) and [CLEANUP.md](docs/CLEANUP.md) for further
 * Express vs. Custom WM: Choose between our optimized tiling/floating presets or append your own workspace rules and silent-launch flags.
 
 # ZPWA to GPWA
-A codebase rewrite to detect and support other Gecko-based browsers (Firefox/Librewolf)
-while maintaining the Omarchy-native integration.
+while maintaining native desktop integration.
 
-# Beyond Omarchy
-Expanding support for other Wayland Compositors (Niri) and launchers beyond Walker.
+# Beyond Hyprland
+Expanding support for other Wayland Compositors (Niri) and desktop environments.
 ```
 
-**Scope Disclaimer:** While supporting more systems is an exciting prospect, the "magic" of ZPWA comes from its deep connection to the Omarchy workflow. If you require a generic PWA tool for non-Omarchy systems, we recommend [PWAsForFirefox](https://pwasforfirefox.filips.si/). While we cannot attest to its resource footprint or data handling, it remains a robust alternative for those not requiring our specific "skeptical-by-design" architecture.
+**Scope:** ZPWA provides native desktop integration for Zen Browser on Arch Linux.
 
 See [PRODUCT.md](docs/PRODUCT.md) for more information.
 
@@ -125,7 +123,7 @@ Use at your own risk. See [Safety Design](#safety) for more information.
 
 ## Dependencies
 
-* **[Omarchy](https://omarchy.org/):** An opinionated, performance-tuned Arch Linux distribution.
+* **[Arch Linux](https://archlinux.org/):** A lightweight and flexible Linux distribution.
 * **[Zen Browser](https://zen-browser.app/):** A privacy-focused, highly customizable Gecko-based browser.
 * **[Hyprland](https://hypr.land/):** A dynamic tiling Wayland compositor that doesn't sacrifice looks for usability.
 * **[Walker](https://github.com/abenz1267/walker):** A high-speed, highly extensible Wayland application runner.
@@ -138,9 +136,7 @@ Use at your own risk. See [Safety Design](#safety) for more information.
 **Pull Requests > Forks.** To keep the project unified and high-quality, please submit PRs for roadmap features or bug fixes. If you intend to fork for a different ecosystem, please contact the maintainer first. In the event this project is marked "Unmaintained," forks are encouraged.
 
 ## About
-The Single Site Browser / Progressive Web App generator for Zen Browser users on an Omarchy system.
-
-Developed on release [3.4.2](https://github.com/basecamp/omarchy/releases/tag/v3.4.2) of Omarchy.
+The Single Site Browser / Progressive Web App generator for Zen Browser users on Arch Linux.
 
 Thank you to [Mole](https://github.com/tw93/Mole), whose [README.md](https://github.com/tw93/Mole/blob/b8f2a3fb0da4d5e0070db958e7b6cc48217bb1aa/README.md) I used as a basis for the structure of this page.
 

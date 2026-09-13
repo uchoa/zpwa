@@ -2,12 +2,15 @@
 
 # --- SYSTEM & BINARIES ---
 export ZEN_BIN="/opt/zen-browser-bin/zen-bin"
+if [ ! -t 0 ]; then
+    export ZPWA_TERMINAL_WRAPPER="${TERMINAL:-xdg-terminal-exec}"
+fi
 
 # --- DIRECTORY STRUCTURE ---
-export BASE_DIR="$HOME/.zpwa"
-export ZEN_DIR="$HOME/.zen"
-export ICON_DIR="$HOME/.local/share/applications/icons"
-export DESKTOP_DIR="$HOME/.local/share/applications"
+export BASE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zpwa"
+export ZEN_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zen"
+export ICON_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
+export DESKTOP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
 export SCRIPT_DIR="$BASE_DIR/scripts"
 export GEN_DIR="$SCRIPT_DIR/generate"
 export PAYLOAD_DIR="$BASE_DIR/payloads"

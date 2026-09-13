@@ -1,27 +1,29 @@
 #!/bin/bash
-# ~/.zpwa/scripts/generate/generate_pwa_binds.sh
+# generate_pwa_binds.sh
+
+# --- HYPRLAND ENVIRONMENT GUARD ---
+if ! command -v hyprctl >/dev/null 2>&1 || [ -z "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
+    exit 0
+fi
 
 # --- INITIALIZE ---
-source "$HOME/.zpwa/variables/variables.sh"
+source "${BASE_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/zpwa}/variables/variables.sh"
 
 # Ensure the binds directory exists
 mkdir -p "$BINDS_DIR"
 
-# --- GENERATE DYNAMIC BINDS (Sniffed from Omarchy) ---
+# --- GENERATE DYNAMIC BINDS ---
 ACTIONS=(
     "killactive"
     "walker"
     "rofi"
     "wofi"
-    "omarchy-hyprland-window-close-all"
     "layoutmsg, togglesplit"
     "pseudo,"
     "togglefloating"
     "fullscreen, 0"
     "fullscreenstate, 0 2"
     "fullscreen, 1"
-    "omarchy-hyprland-window-pop"
-    "omarchy-hyprland-workspace-layout-toggle"
     "movefocus, l"
     "movefocus, r"
     "movefocus, u"
@@ -46,11 +48,10 @@ ACTIONS=(
     "resizeactive, 0 100"
     "movewindow"
     "resizewindow"
-    "omarchy-hyprland-monitor-scaling-cycle"
 )
 
 echo "# Automatically generated Tiling Binds" > "$DYNAMIC_OUT"
-echo "# Makes select default Omarchy and User modified keybinds available in the submap" >> "$DYNAMIC_OUT"
+echo "# Makes select default and user-modified keybinds available in the submap" >> "$DYNAMIC_OUT"
 
 for action in "${ACTIONS[@]}"; do
     # Uses FIND_BIND variable from variables.sh
